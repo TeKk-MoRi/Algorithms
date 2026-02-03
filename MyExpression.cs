@@ -25,7 +25,7 @@ namespace WorkingWithArrays
                     myStack.Pop();
                 }
             }
-           return myStack.Count == 0;
+           return myStack.Count == 0; 
         }
 
     }
