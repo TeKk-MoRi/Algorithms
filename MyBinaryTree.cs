@@ -11,6 +11,11 @@ public class MyBinaryTree
     {
         return _root?.Find(value) ?? false;
     }
+
+    public void TraversePreOrder()
+    {
+        _root.TraversePreOrder(_root);
+    }
     public void Insert(int value)
     {
         if (_root is null)
@@ -89,6 +94,18 @@ public class MyBinaryTree
             }
 
             return false;
+        }
+
+
+        public void TraversePreOrder(Node root)
+        {
+            if (root is null)
+                return;
+
+            System.Console.WriteLine(root._value);
+            TraversePreOrder(root._leftChild);
+            TraversePreOrder(root._rightChild);
+
         }
 
 

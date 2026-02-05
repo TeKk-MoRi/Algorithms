@@ -75,7 +75,9 @@ binaryTree.Insert(1);
 binaryTree.Insert(6);
 binaryTree.Insert(8);
 binaryTree.Insert(10);
-System.Console.WriteLine("Inserted 10");
+System.Console.WriteLine(binaryTree.Find(11));
+
+binaryTree.TraversePreOrder();
 
 
 
