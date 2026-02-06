@@ -12,6 +12,11 @@ public class MyBinaryTree
         return _root?.Find(value) ?? false;
     }
 
+    public int Min()
+    {
+        return _root.CalMin(_root);
+    }
+
     public void TraversePreOrder()
     {
         _root.TraversePreOrder(_root);
@@ -106,6 +111,23 @@ public class MyBinaryTree
             TraversePreOrder(root._leftChild);
             TraversePreOrder(root._rightChild);
 
+        }
+        private bool IsLeaf(Node root)
+        {
+            return root._leftChild is null && root._rightChild is null;
+        }
+        public int CalMin(Node root)
+        {
+            if (IsLeaf(root))
+                return root._value;
+
+            var left = CalMin(root._leftChild);
+            var right = CalMin(root._rightChild);
+
+            var minOfLeftRight = Math.Min(left, right);
+            var minOfAll = Math.Min(minOfLeftRight, root._value);
+
+            return minOfAll;
         }
 
 

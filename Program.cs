@@ -53,7 +53,7 @@ names.ToHashSet();
 
 Dictionary<int, string> myDict = new Dictionary<int, string>();
 myDict.Add(1, "One");
-myDict.Add(2, "Two");   
+myDict.Add(2, "Two");
 myDict[3] = "Three";
 var result = myDict.FirstOrDefault(x => x.Key == 2);
 System.Console.WriteLine(result.Value);
@@ -78,6 +78,10 @@ binaryTree.Insert(10);
 System.Console.WriteLine(binaryTree.Find(11));
 
 binaryTree.TraversePreOrder();
+
+var min = binaryTree.Min();
+
+System.Console.WriteLine($"the min is {min}");
 
 
 
