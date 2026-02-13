@@ -101,6 +101,11 @@ var isEqual = binaryTree.CheckEqual(binaryTree2);
 
 System.Console.WriteLine($"These two trees are equal? {isEqual}");
 
+var isBinarySearchTree = binaryTree.CheckIfBinarySearchTree();
+
+System.Console.WriteLine($"Is Binary search tree? {isBinarySearchTree}");
+
+
 
 
 

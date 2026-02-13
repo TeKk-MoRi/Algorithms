@@ -23,7 +23,12 @@ public class MyBinaryTree
     }
     public bool CheckEqual(MyBinaryTree other)
     {
-        return _root.IsEqual(_root , other._root);
+        return _root.IsEqual(_root, other._root);
+    }
+
+    public bool CheckIfBinarySearchTree()
+    {
+        return _root.IsBinarySearchTree(_root ,  int.MinValue , int.MaxValue);
     }
 
     public int GetHeight()
@@ -160,6 +165,19 @@ public class MyBinaryTree
                 && IsEqual(first._rightChild, second._rightChild);
 
             return false;
+        }
+
+        public bool IsBinarySearchTree(Node root, int minValue, int maxValue)
+        {
+            if (root is null)
+                return true;
+
+            if (root._value < minValue || root._value > maxValue)
+                return false;
+
+                return IsBinarySearchTree(root._leftChild , minValue , root._value - 1)
+                && IsBinarySearchTree(root._rightChild , root._value + 1 , maxValue);
+
         }
 
 
