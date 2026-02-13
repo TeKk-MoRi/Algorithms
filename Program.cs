@@ -75,6 +75,7 @@ binaryTree.Insert(1);
 binaryTree.Insert(6);
 binaryTree.Insert(8);
 binaryTree.Insert(10);
+
 System.Console.WriteLine(binaryTree.Find(11));
 
 binaryTree.TraversePreOrder();
@@ -85,6 +86,20 @@ System.Console.WriteLine($"the min is {min}");
 
 var height = binaryTree.GetHeight();
 System.Console.WriteLine($"the height is {height}");
+
+
+MyBinaryTree binaryTree2 = new MyBinaryTree();
+binaryTree2.Insert(7);
+binaryTree2.Insert(4);
+binaryTree2.Insert(9);
+binaryTree2.Insert(1);
+binaryTree2.Insert(6);
+binaryTree2.Insert(8);
+binaryTree2.Insert(10);
+
+var isEqual = binaryTree.CheckEqual(binaryTree2);
+
+System.Console.WriteLine($"These two trees are equal? {isEqual}");
 
 
 

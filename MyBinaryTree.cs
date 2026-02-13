@@ -21,6 +21,11 @@ public class MyBinaryTree
     {
         _root.TraversePreOrder(_root);
     }
+    public bool CheckEqual(MyBinaryTree other)
+    {
+        return _root.IsEqual(_root , other._root);
+    }
+
     public int GetHeight()
     {
         if (_root is null)
@@ -142,6 +147,19 @@ public class MyBinaryTree
             if (IsLeaf(node))
                 return 0;
             return 1 + Math.Max(CalHeight(node._leftChild), CalHeight(node._rightChild));
+        }
+
+        public bool IsEqual(Node first, Node second)
+        {
+            if (first is null && second is null)
+                return true;
+
+            if (first is not null && second is not null)
+                return first._value == second._value
+                && IsEqual(first._leftChild, second._leftChild)
+                && IsEqual(first._rightChild, second._rightChild);
+
+            return false;
         }
 
 
