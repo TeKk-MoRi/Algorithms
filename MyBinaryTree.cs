@@ -17,6 +17,11 @@ public class MyBinaryTree
         return _root.CalMin(_root);
     }
 
+    public void PrintAtDistance(int distance)
+    {
+        _root.PrintNodeAtDistance(_root, distance);
+    }
+
     public void TraversePreOrder()
     {
         _root.TraversePreOrder(_root);
@@ -28,7 +33,7 @@ public class MyBinaryTree
 
     public bool CheckIfBinarySearchTree()
     {
-        return _root.IsBinarySearchTree(_root ,  int.MinValue , int.MaxValue);
+        return _root.IsBinarySearchTree(_root, int.MinValue, int.MaxValue);
     }
 
     public int GetHeight()
@@ -175,9 +180,24 @@ public class MyBinaryTree
             if (root._value < minValue || root._value > maxValue)
                 return false;
 
-                return IsBinarySearchTree(root._leftChild , minValue , root._value - 1)
-                && IsBinarySearchTree(root._rightChild , root._value + 1 , maxValue);
+            return IsBinarySearchTree(root._leftChild, minValue, root._value - 1)
+            && IsBinarySearchTree(root._rightChild, root._value + 1, maxValue);
 
+        }
+
+        public void PrintNodeAtDistance(Node node, int distance)
+        {
+            if (node is null)
+                return;
+
+            if (distance == 0)
+            {
+                System.Console.WriteLine($"The value of distance is {node._value}");
+                return;
+            }
+
+            PrintNodeAtDistance(node._leftChild, distance - 1);
+            PrintNodeAtDistance(node._rightChild, distance - 1);
         }
 
 

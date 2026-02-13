@@ -106,6 +106,9 @@ var isBinarySearchTree = binaryTree.CheckIfBinarySearchTree();
 System.Console.WriteLine($"Is Binary search tree? {isBinarySearchTree}");
 
 
+binaryTree.PrintAtDistance(1);
+
+
 
 
 
