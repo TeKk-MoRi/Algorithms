@@ -21,6 +21,13 @@ public class MyBinaryTree
     {
         _root.TraversePreOrder(_root);
     }
+    public int GetHeight()
+    {
+        if (_root is null)
+            return -1;
+
+        return _root.CalHeight(_root);
+    }
     public void Insert(int value)
     {
         if (_root is null)
@@ -116,18 +123,25 @@ public class MyBinaryTree
         {
             return root._leftChild is null && root._rightChild is null;
         }
-        public int CalMin(Node root)
+        public int CalMin(Node node)
         {
-            if (IsLeaf(root))
-                return root._value;
+            if (IsLeaf(node))
+                return node._value;
 
-            var left = CalMin(root._leftChild);
-            var right = CalMin(root._rightChild);
+            var left = CalMin(node._leftChild);
+            var right = CalMin(node._rightChild);
 
             var minOfLeftRight = Math.Min(left, right);
-            var minOfAll = Math.Min(minOfLeftRight, root._value);
+            var minOfAll = Math.Min(minOfLeftRight, node._value);
 
             return minOfAll;
+        }
+
+        public int CalHeight(Node node)
+        {
+            if (IsLeaf(node))
+                return 0;
+            return 1 + Math.Max(CalHeight(node._leftChild), CalHeight(node._rightChild));
         }
 
 

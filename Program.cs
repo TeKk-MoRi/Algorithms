@@ -83,6 +83,9 @@ var min = binaryTree.Min();
 
 System.Console.WriteLine($"the min is {min}");
 
+var height = binaryTree.GetHeight();
+System.Console.WriteLine($"the height is {height}");
+
 
 
 
